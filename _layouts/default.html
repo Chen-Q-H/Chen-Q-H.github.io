@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/override.css' | relative_url }}">
 </head>
 <body class="bg-light" {{ page.body_attr }}>
+    <canvas id="fireworks-canvas"></canvas>
     {% include navbar.html %}
     <div class="{% if page.container_class %}{{ page.container_class }}{% else %}container-lg{% endif %}">
         {{content}}
@@ -48,5 +49,6 @@
     <script src="{{ '/assets/js/common.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/semantic_scholar_citation_count.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/fireworks.js' | relative_url }}"></script>
 </body>
 </html>

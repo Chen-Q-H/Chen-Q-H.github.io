@@ -1,5 +1,16 @@
 /* Custom Style Override */
 
+/* 烟花画布 */
+#fireworks-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* 全局重置 */
 * {
   box-sizing: border-box;
