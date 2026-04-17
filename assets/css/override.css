@@ -11,6 +11,16 @@
   z-index: 0;
 }
 
+/* 导航栏底部光线画布 */
+#navbar-light-canvas {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  pointer-events: none;
+  z-index: 999;
+}
+
 /* 全局重置 */
 * {
   box-sizing: border-box;
@@ -87,93 +97,140 @@ p {
 
 /* 导航栏 */
 .navbar {
-  background: rgba(255, 255, 255, 0.85) !important;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 85, 255, 0.1);
-  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.05) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: none !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04) !important;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
-  padding: 1rem 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.9rem 0;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 85, 255, 0.2), transparent);
 }
 
 .navbar.scrolled {
   background: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.1) !important;
-  padding: 0.75rem 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06) !important;
+  padding: 0.65rem 0;
 }
 
 .navbar-brand {
   color: #0A0A0A !important;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
   transition: all 0.3s ease;
   position: relative;
-  padding-left: 1.5rem;
+  padding: 0.35rem 0.75rem 0.35rem 2.5rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(0, 85, 255, 0.04), rgba(0, 163, 255, 0.02));
 }
 
 .navbar-brand::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  width: 4px;
-  height: 20px;
+  width: 8px;
+  height: 8px;
   background: #0055FF;
-  border-radius: 2px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 85, 255, 0.5), 10px 0 0 rgba(0, 85, 255, 0.2);
 }
 
 .navbar-brand:hover {
   color: #0A0A0A !important;
   background: none !important;
-  padding-left: 1.5rem !important;
+  background: linear-gradient(135deg, rgba(0, 85, 255, 0.06), rgba(0, 163, 255, 0.03)) !important;
+  padding: 0.35rem 0.75rem 0.35rem 2.5rem !important;
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(0, 85, 255, 0.2) !important;
+  border-radius: 8px !important;
+  color: #3A3A3A !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+  background: rgba(0, 85, 255, 0.05) !important;
+  border-color: rgba(0, 85, 255, 0.3) !important;
 }
 
 .nav-link {
-  color: #3A3A3A !important;
+  color: #555 !important;
   font-weight: 500 !important;
-  transition: all 0.3s ease;
+  font-size: 0.92rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem !important;
+  margin: 0 0.3rem;
+  padding: 0.45rem 0.9rem !important;
   border-radius: 8px;
+  letter-spacing: 0.01em;
 }
 
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: #0055FF;
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, #0055FF, #00A3FF);
+  border-radius: 1px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover {
   color: #0055FF !important;
-  text-shadow: 0 0 8px rgba(0, 85, 255, 0.15);
-  background: rgba(0, 85, 255, 0.05);
+  background: rgba(0, 85, 255, 0.06);
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  width: 60%;
 }
 
 .nav-item.active .nav-link {
   color: #0055FF !important;
   font-weight: 600 !important;
-  background: rgba(0, 85, 255, 0.1);
+  background: rgba(0, 85, 255, 0.08);
 }
 
 .nav-item.active .nav-link::after {
+  width: 60%;
+}
+
+.navbar-nav {
+  gap: 0.15rem;
+}
+
+/* 跑步小动物画布 */
+#animals-canvas {
+  position: fixed;
+  left: 0;
   width: 100%;
+  height: 60px;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+@media (max-width: 992px) {
+  #animals-canvas { display: none; }
 }
 
 /* 板块间距 */

@@ -6,7 +6,7 @@ pub:            "项目经验"
 pub_date:       "2025"
 abstract: >-
   为工程监测 Android App 增加精量科技（BLE/JSON）、天宝（SPP）、徕卡（SPP）三类蓝牙设备的对接能力。
-cover:          /assets/images/covers/cover1.jpg
+cover:          /assets/images/covers/cover2.png
 authors:
 - 陈启欢*
 links:

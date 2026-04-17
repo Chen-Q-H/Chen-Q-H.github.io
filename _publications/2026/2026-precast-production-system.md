@@ -6,7 +6,7 @@ pub:            "项目经验"
 pub_date:       "2026"
 abstract: >-
   独立完成 PC 端管理后台（9 个子模块）与 App 端现场作业（收货、检测）的前端开发，覆盖系统核心业务模块。
-cover:          /assets/images/covers/cover1.jpg
+cover:          /assets/images/covers/cover1.png
 authors:
 - 陈启欢*
 links:
