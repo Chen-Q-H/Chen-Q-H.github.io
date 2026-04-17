@@ -39,4 +39,32 @@ $(function () {
     $(".lazy").on("load", function () {
         $grid.masonry('layout');
     });
+
+    function updateSidebarCard() {
+        var placeholder = document.getElementById('sidebar-placeholder');
+        var card = document.getElementById('sidebar-card');
+        if (!placeholder || !card) return;
+
+        var rect = placeholder.getBoundingClientRect();
+        card.style.width = rect.width + 'px';
+        card.style.left = rect.left + 'px';
+        placeholder.style.minHeight = card.offsetHeight + 'px';
+    }
+
+    function updateYearNavCard() {
+        var placeholder = document.getElementById('year-nav-placeholder');
+        var card = document.getElementById('year-nav-card');
+        if (!placeholder || !card) return;
+
+        var rect = placeholder.getBoundingClientRect();
+        card.style.width = rect.width + 'px';
+        card.style.left = rect.left + 'px';
+    }
+
+    updateSidebarCard();
+    updateYearNavCard();
+    window.addEventListener('resize', function() {
+        updateSidebarCard();
+        updateYearNavCard();
+    });
 })

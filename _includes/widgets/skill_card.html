@@ -1,0 +1,13 @@
+<div class="my-3 p-0 bg-white shadow-sm rounded-xl">
+    <h6 class="border-bottom border-gray p-3 mb-0">
+        <i class="fas fa-tools"></i> 技能特长
+    </h6>
+    <div class="p-3">
+        {% for skill in site.data.profile.skills %}
+        <div class="mb-2">
+            <h6 class="font-weight-bold d-inline-block">{{ skill.category }}：</h6>
+            <span class="mb-0">{{ skill.items }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>

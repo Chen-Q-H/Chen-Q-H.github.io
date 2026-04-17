@@ -4,8 +4,9 @@ title : Homepage
 navbar_title: Home
 ---
 
+<div class="content-area">
 <div class="row">
-    <div class="col-lg-3 col-md-4">
+    <div class="col-lg-3 col-md-4" id="sidebar-placeholder">
         {% include widgets/profile_card_mini.html %}
     </div>
     <div class="col-lg-9 col-md-8">
@@ -27,13 +28,18 @@ navbar_title: Home
         {% endif %}
         {% endif %}
 
-        {% if site.data.display.homepage.show_selected_publications %}
+        {% if site.data.display.homepage.show_selected_projects %}
         {% assign pubs = site.publications | sort: "date" | reverse | where: "selected", true %}
         {%
         include widgets/publication_card.html
         publications=pubs
-        title='<i class="fas fa-star"></i> Selected Publications'
+        title='<i class="fas fa-star"></i> 项目经验'
         %}
         {% endif %}
+
+        {% if site.data.profile.skills %}
+        {% include widgets/skill_card.html %}
+        {% endif %}
     </div>
+</div>
 </div>
