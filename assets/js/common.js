@@ -45,10 +45,18 @@ $(function () {
         var card = document.getElementById('sidebar-card');
         if (!placeholder || !card) return;
 
-        var rect = placeholder.getBoundingClientRect();
-        card.style.width = rect.width + 'px';
-        card.style.left = rect.left + 'px';
-        placeholder.style.minHeight = card.offsetHeight + 'px';
+        // Only update for non-mobile devices
+        if (window.innerWidth >= 768) {
+            var rect = placeholder.getBoundingClientRect();
+            card.style.width = rect.width + 'px';
+            card.style.left = rect.left + 'px';
+            placeholder.style.minHeight = card.offsetHeight + 'px';
+        } else {
+            // Reset styles for mobile
+            card.style.width = '';
+            card.style.left = '';
+            placeholder.style.minHeight = '';
+        }
     }
 
     function updateYearNavCard() {

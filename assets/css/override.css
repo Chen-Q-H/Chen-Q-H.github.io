@@ -446,7 +446,44 @@ li {
     backdrop-filter: none;
     padding: 0.75rem 0;
   }
-  
+
+  .navbar-brand {
+    padding-left: 3rem !important;
+    padding-right: 1rem !important;
+    margin-left: 0.5rem;
+  }
+
+  .navbar-toggler {
+    margin-right: 0.5rem;
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-item.active .nav-link {
+    border-left: 3px solid #0055FF;
+    background: rgba(0, 85, 255, 0.08) !important;
+    border-radius: 0 8px 8px 0 !important;
+    padding-left: 1rem !important;
+  }
+
+  #sidebar-card {
+    position: static !important;
+    top: auto !important;
+    margin-top: 3rem !important;
+  }
+
+  .profile-card {
+    margin: 0 auto !important;
+    max-width: 100%;
+  }
+
+  .content-area {
+    margin-top: 0 !important;
+  }
+
   .container-lg, .container-xl {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
