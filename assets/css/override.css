@@ -230,7 +230,10 @@ p {
 }
 
 @media (max-width: 992px) {
-  #animals-canvas { display: none; }
+  #animals-canvas {
+    top: auto !important;
+    bottom: 0;
+  }
 }
 
 /* 板块间距 */

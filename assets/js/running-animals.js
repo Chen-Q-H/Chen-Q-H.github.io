@@ -12,10 +12,16 @@
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = 60;
-    var navbar = document.querySelector('.navbar');
-    if (navbar) {
-      navbarHeight = navbar.offsetHeight;
-      canvas.style.top = (navbarHeight - 60) + 'px';
+    if (window.innerWidth < 992) {
+      canvas.style.top = '';
+      canvas.style.bottom = '0';
+    } else {
+      canvas.style.bottom = '';
+      var navbar = document.querySelector('.navbar');
+      if (navbar) {
+        navbarHeight = navbar.offsetHeight;
+        canvas.style.top = (navbarHeight - 60) + 'px';
+      }
     }
   }
 
@@ -244,23 +250,36 @@
   function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if (window.innerWidth < 992) {
-      requestAnimationFrame(animate);
-      return;
-    }
-
     time += 0.012;
 
     var edges = getContainerEdges();
     var centerY = 48;
 
     if (!catInitialized) {
-      catX = edges.left / 2;
+      catX = window.innerWidth < 992 ? canvas.width * 0.25 : edges.left / 2;
       catInitialized = true;
     }
 
     var catSpeed = 0.35;
     catX += catDir * catSpeed;
+
+    if (window.innerWidth < 992) {
+      var catLeft = 35;
+      var catRight = canvas.width * 0.4;
+      if (catX > catRight) {
+        catX = catRight;
+        catDir = -1;
+      }
+      if (catX < catLeft) {
+        catX = catLeft;
+        catDir = 1;
+      }
+      var chickCenterX = canvas.width * 0.75;
+      drawCat(catX, centerY, -catDir, time * 1.2);
+      drawChick(chickCenterX, centerY, time * 3);
+      requestAnimationFrame(animate);
+      return;
+    }
 
     var catLeft = 35;
     var catRight = edges.left - 25;
