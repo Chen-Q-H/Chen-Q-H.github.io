@@ -154,11 +154,14 @@ p {
 
 /* 导航栏 */
 .navbar {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15), rgba(78, 205, 196, 0.1)) !important;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: none !important;
-  box-shadow: 0 4px 30px var(--anime-shadow) !important;
+  box-shadow: 
+    0 4px 30px var(--anime-shadow),
+    0 0 50px rgba(255, 107, 139, 0.3),
+    0 0 100px rgba(162, 136, 227, 0.2) !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -167,13 +170,34 @@ p {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 0.9rem 0;
   border-radius: 0 0 20px 20px;
+  overflow: hidden;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: navbar-shine 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes navbar-shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
 
 
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98) !important;
-  box-shadow: 0 6px 40px var(--anime-shadow) !important;
+  background: linear-gradient(135deg, rgba(255, 107, 139, 0.2), rgba(162, 136, 227, 0.2), rgba(78, 205, 196, 0.15)) !important;
+  box-shadow: 
+    0 6px 40px var(--anime-shadow),
+    0 0 60px rgba(255, 107, 139, 0.4),
+    0 0 120px rgba(162, 136, 227, 0.3) !important;
   padding: 0.65rem 0;
 }
 
@@ -285,6 +309,62 @@ p {
 
 .navbar-nav {
   gap: 0.5rem;
+}
+
+/* 导航栏动漫装饰元素 */
+.navbar-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.navbar-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--anime-white);
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--anime-yellow);
+  animation: navbar-star-float 6s linear infinite;
+}
+
+@keyframes navbar-star-float {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-20%) rotate(180deg) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-80%) rotate(360deg) scale(1);
+  }
+  100% {
+    transform: translateY(-100%) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.navbar-sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--anime-white);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--anime-pink);
+  animation: navbar-sparkle-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes navbar-sparkle-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
 }
 
 /* 跑步小动物画布 */
@@ -573,31 +653,86 @@ li {
 /* 响应式设计 */
 @media (max-width: 768px) {
   .navbar {
-    background: #FFFFFF !important;
-    backdrop-filter: none;
+    background: linear-gradient(135deg, rgba(255, 107, 139, 0.2), rgba(162, 136, 227, 0.2), rgba(78, 205, 196, 0.15)) !important;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     padding: 0.75rem 0;
+    box-shadow: 
+      0 4px 30px var(--anime-shadow),
+      0 0 50px rgba(255, 107, 139, 0.3),
+      0 0 100px rgba(162, 136, 227, 0.2) !important;
+  }
+
+  /* 移动端下拉菜单样式 */
+  .navbar-collapse {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9)) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0 0 20px 20px;
+    margin-top: 0.5rem;
+    box-shadow: 0 10px 40px var(--anime-shadow) !important;
+    border: 1px solid rgba(162, 136, 227, 0.2) !important;
+    overflow: hidden;
+  }
+
+  .navbar-collapse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: navbar-shine 3s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  .navbar-nav {
+    padding: 0.5rem 0;
   }
 
   .navbar-brand {
     padding-left: 3rem !important;
     padding-right: 1rem !important;
     margin-left: 0.5rem;
+    background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15)) !important;
+    box-shadow: 0 4px 15px rgba(162, 136, 227, 0.1) !important;
   }
 
   .navbar-toggler {
     margin-right: 0.5rem;
     padding: 0.5rem 0.75rem !important;
+    border: 2px solid var(--anime-purple) !important;
+    border-radius: 12px !important;
+    color: var(--anime-purple) !important;
+    background: rgba(162, 136, 227, 0.1) !important;
   }
 
   .nav-link::after {
     display: none;
   }
 
+  .nav-link {
+    margin: 0.25rem 0.5rem !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+    box-shadow: 0 2px 10px rgba(162, 136, 227, 0.05) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .nav-link:hover {
+    background: rgba(162, 136, 227, 0.1) !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 4px 15px rgba(162, 136, 227, 0.15) !important;
+  }
+
   .nav-item.active .nav-link {
-    border-left: 3px solid #0055FF;
-    background: rgba(0, 85, 255, 0.08) !important;
-    border-radius: 0 8px 8px 0 !important;
+    border-left: 3px solid var(--anime-pink) !important;
+    background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15)) !important;
+    border-radius: 0 12px 12px 0 !important;
     padding-left: 1rem !important;
+    box-shadow: 0 4px 15px rgba(162, 136, 227, 0.2) !important;
   }
 
   #sidebar-card {
