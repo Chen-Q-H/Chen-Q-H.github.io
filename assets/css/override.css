@@ -576,9 +576,7 @@ img[src*="kpbl.jpeg"]:hover, .portrait img:hover {
 
 /* 项目卡片样式 */
 .publication-card, .news-card, .experience-card, .skill-card {
-  background: rgba(255, 255, 255, 0.8) !important;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.95) !important;
   border-radius: 24px !important;
   box-shadow: 0 12px 40px var(--anime-shadow) !important;
   border: 2px solid rgba(162, 136, 227, 0.2) !important;
@@ -755,9 +753,15 @@ li {
     padding-right: 1.5rem;
   }
   
-  img[src*="kpbl.jpeg"], .portrait img {
-    width: 120px !important;
-    height: 120px !important;
+  /* 修复移动端头像大小和间距问题 */
+  .profile-card-mini .d-md-none {
+    margin-bottom: 0.2rem !important;
+  }
+  
+  .profile-card-mini .d-md-none img {
+    max-width: 150px !important;
+    width: 150px !important;
+    height: 150px !important;
   }
   
   h1 {
