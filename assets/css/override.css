@@ -16,17 +16,16 @@
   box-sizing: border-box;
 }
 
-/* 动漫风格色彩变量 */
+/* 适合男生的配色方案 */
 :root {
-  --anime-pink: #FF6B8B;
-  --anime-blue: #4ECDC4;
-  --anime-purple: #A288E3;
-  --anime-yellow: #FFD166;
-  --anime-green: #06D6A0;
+  --anime-primary: #2563EB;    /* 深蓝色 */
+  --anime-secondary: #3B82F6;  /* 蓝色 */
+  --anime-accent: #10B981;     /* 绿色 */
+  --anime-neutral: #6B7280;    /* 灰色 */
   --anime-white: #FFFFFF;
-  --anime-light: #F8F9FF;
-  --anime-text: #333344;
-  --anime-shadow: rgba(162, 136, 227, 0.15);
+  --anime-light: #F8FAFC;
+  --anime-text: #1F2937;
+  --anime-shadow: rgba(37, 99, 235, 0.15);
 }
 
 /* 排版 */
@@ -46,7 +45,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #FFE8F0 0%, #E8F4FF 50%, #F0E8FF 100%);
+  background: linear-gradient(135deg, #EFF6FF 0%, #F0F9FF 50%, #F8FAFC 100%);
   pointer-events: none;
   z-index: -1;
 }
@@ -60,8 +59,8 @@ body::after {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(162, 136, 227, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(162, 136, 227, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
   background-size: 30px 30px;
   pointer-events: none;
   z-index: -1;
@@ -83,7 +82,7 @@ body::after {
   position: fixed;
   width: 10px;
   height: 10px;
-  background: var(--anime-pink);
+  background: var(--anime-primary);
   border-radius: 150% 0 150% 0;
   opacity: 0.7;
   animation: sakura-fall linear infinite;
@@ -114,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--anime-text);
   font-weight: 700;
   letter-spacing: -0.02em;
-  text-shadow: 2px 2px 4px rgba(162, 136, 227, 0.1);
+  text-shadow: 2px 2px 4px rgba(37, 99, 235, 0.1);
 }
 
 h1 {
@@ -154,14 +153,14 @@ p {
 
 /* 导航栏 */
 .navbar {
-  background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15), rgba(78, 205, 196, 0.1)) !important;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.15), rgba(16, 185, 129, 0.1)) !important;
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: none !important;
   box-shadow: 
     0 4px 30px var(--anime-shadow),
-    0 0 50px rgba(255, 107, 139, 0.3),
-    0 0 100px rgba(162, 136, 227, 0.2) !important;
+    0 0 50px rgba(37, 99, 235, 0.2),
+    0 0 100px rgba(59, 130, 246, 0.15) !important;
   position: fixed;
   top: 0;
   left: 0;
@@ -193,12 +192,12 @@ p {
 
 
 .navbar.scrolled {
-  background: linear-gradient(135deg, rgba(255, 107, 139, 0.2), rgba(162, 136, 227, 0.2), rgba(78, 205, 196, 0.15)) !important;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.1)) !important;
   box-shadow: 
     0 6px 40px var(--anime-shadow),
-    0 0 60px rgba(255, 107, 139, 0.4),
-    0 0 120px rgba(162, 136, 227, 0.3) !important;
-  padding: 0.65rem 0;
+    0 0 60px rgba(37, 99, 235, 0.25),
+    0 0 120px rgba(59, 130, 246, 0.2) !important;
+  padding: 0.9rem 0; /* 保持与正常状态相同的padding，避免高度变化 */
 }
 
 .navbar-brand {
@@ -209,8 +208,8 @@ p {
   position: relative;
   padding: 0.5rem 1rem 0.5rem 3rem;
   border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 107, 139, 0.1), rgba(162, 136, 227, 0.1));
-  box-shadow: 0 4px 15px rgba(162, 136, 227, 0.1);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(59, 130, 246, 0.08));
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
   z-index: 1001;
   transition: all 0.3s ease-in-out;
 }
@@ -229,8 +228,8 @@ p {
 
 .navbar-brand:hover {
   padding: 0.5rem 1rem 0.5rem 3rem;
-  background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15));
-  box-shadow: 0 6px 20px rgba(162, 136, 227, 0.2);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.15));
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.2);
 }
 
 .navbar-brand:hover::before {
@@ -244,16 +243,16 @@ p {
 }
 
 .navbar-toggler {
-  border: 2px solid var(--anime-purple) !important;
+  border: 2px solid var(--anime-primary) !important;
   border-radius: 12px !important;
-  color: var(--anime-purple) !important;
+  color: var(--anime-primary) !important;
   transition: all 0.3s ease;
-  background: rgba(162, 136, 227, 0.1) !important;
+  background: rgba(37, 99, 235, 0.1) !important;
 }
 
 .navbar-toggler:hover {
-  background: rgba(162, 136, 227, 0.2) !important;
-  border-color: var(--anime-pink) !important;
+  background: rgba(37, 99, 235, 0.2) !important;
+  border-color: var(--anime-secondary) !important;
   transform: scale(1.05);
 }
 
@@ -268,7 +267,7 @@ p {
   border-radius: 20px;
   letter-spacing: 0.02em;
   background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 2px 10px rgba(162, 136, 227, 0.05);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.05);
 }
 
 .nav-link::after {
@@ -285,10 +284,10 @@ p {
 }
 
 .nav-link:hover {
-  color: var(--anime-purple) !important;
-  background: rgba(162, 136, 227, 0.1);
+  color: var(--anime-primary) !important;
+  background: rgba(37, 99, 235, 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(162, 136, 227, 0.15);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
 }
 
 .nav-link:hover::after {
@@ -298,8 +297,8 @@ p {
 .nav-item.active .nav-link {
   color: var(--anime-white) !important;
   font-weight: 600 !important;
-  background: linear-gradient(135deg, var(--anime-pink), var(--anime-purple));
-  box-shadow: 0 4px 15px rgba(162, 136, 227, 0.3);
+  background: linear-gradient(135deg, var(--anime-primary), var(--anime-secondary));
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
 .nav-item.active .nav-link::after {
@@ -405,7 +404,7 @@ p {
   -webkit-backdrop-filter: blur(15px);
   border-radius: 24px !important;
   box-shadow: 0 12px 40px var(--anime-shadow) !important;
-  border: 2px solid rgba(162, 136, 227, 0.2) !important;
+  border: 2px solid rgba(37, 99, 235, 0.2) !important;
   padding: 2.5rem;
   margin-bottom: 2rem;
   position: relative;
@@ -419,7 +418,7 @@ p {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 107, 139, 0.1), transparent, rgba(162, 136, 227, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.1), transparent, rgba(59, 130, 246, 0.1), transparent);
   animation: anime-card-shine 8s linear infinite;
   z-index: -1;
 }
@@ -651,14 +650,14 @@ li {
 /* 响应式设计 */
 @media (max-width: 768px) {
   .navbar {
-    background: linear-gradient(135deg, rgba(255, 107, 139, 0.2), rgba(162, 136, 227, 0.2), rgba(78, 205, 196, 0.15)) !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.15)) !important;
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    padding: 0.75rem 0;
+    padding: 0.9rem 0; /* 保持与桌面端相同的padding，避免高度变化 */
     box-shadow: 
       0 4px 30px var(--anime-shadow),
-      0 0 50px rgba(255, 107, 139, 0.3),
-      0 0 100px rgba(162, 136, 227, 0.2) !important;
+      0 0 50px rgba(37, 99, 235, 0.3),
+      0 0 100px rgba(59, 130, 246, 0.2) !important;
   }
 
   /* 移动端下拉菜单样式 */
@@ -669,7 +668,7 @@ li {
     border-radius: 0 0 20px 20px;
     margin-top: 0.5rem;
     box-shadow: 0 10px 40px var(--anime-shadow) !important;
-    border: 1px solid rgba(162, 136, 227, 0.2) !important;
+    border: 1px solid rgba(37, 99, 235, 0.2) !important;
     overflow: hidden;
   }
 
@@ -693,17 +692,17 @@ li {
     padding-left: 3rem !important;
     padding-right: 1rem !important;
     margin-left: 0.5rem;
-    background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15)) !important;
-    box-shadow: 0 4px 15px rgba(162, 136, 227, 0.1) !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.15)) !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1) !important;
   }
 
   .navbar-toggler {
     margin-right: 0.5rem;
     padding: 0.5rem 0.75rem !important;
-    border: 2px solid var(--anime-purple) !important;
+    border: 2px solid var(--anime-primary) !important;
     border-radius: 12px !important;
-    color: var(--anime-purple) !important;
-    background: rgba(162, 136, 227, 0.1) !important;
+    color: var(--anime-primary) !important;
+    background: rgba(37, 99, 235, 0.1) !important;
   }
 
   .nav-link::after {
@@ -715,22 +714,22 @@ li {
     padding: 0.75rem 1rem !important;
     border-radius: 12px !important;
     background: rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 2px 10px rgba(162, 136, 227, 0.05) !important;
+    box-shadow: 0 2px 10px rgba(37, 99, 235, 0.05) !important;
     transition: all 0.3s ease !important;
   }
 
   .nav-link:hover {
-    background: rgba(162, 136, 227, 0.1) !important;
+    background: rgba(37, 99, 235, 0.1) !important;
     transform: translateX(5px) !important;
-    box-shadow: 0 4px 15px rgba(162, 136, 227, 0.15) !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15) !important;
   }
 
   .nav-item.active .nav-link {
-    border-left: 3px solid var(--anime-pink) !important;
-    background: linear-gradient(135deg, rgba(255, 107, 139, 0.15), rgba(162, 136, 227, 0.15)) !important;
+    border-left: 3px solid var(--anime-primary) !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(59, 130, 246, 0.15)) !important;
     border-radius: 0 12px 12px 0 !important;
     padding-left: 1rem !important;
-    box-shadow: 0 4px 15px rgba(162, 136, 227, 0.2) !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2) !important;
   }
 
   #sidebar-card {
